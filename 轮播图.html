@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮廓图4</title>
+
+	<meta charset="UTF-8">
+	
+<!-- 	<link rel="stylesheet" type="text/css" href="wichuang-1.0.js"> -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 520px;
+			height: 280px;
+			margin: 200px auto;
+			position: relative;	
+			overflow: hidden;
+		}
+		#imgs{
+
+			height: 280px;
+			position: absolute;
+			left:0;
+
+		}
+		#imgs img{
+			display: none;
+		float: left;
+		}
+		#imgs .selected-img{
+			display: block;
+		}
+		#tab{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
+		#tab li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 2px;
+			cursor: pointer;
+		}
+		#tab .selected-li{
+			background: orange;
+		}
+		#arrows{
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+		}
+		#prev, #next{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 2px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+		<div id="imgs">
+			<img src="img/1.jpg" alt="" class="selected-img">
+			<img src="img/2.jpg" alt="">
+			<img src="img/3.jpg" alt="">
+			<img src="img/4.jpg" alt="">
+		</div>
+		<ul id="tab">
+			<li class="selected-li">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="arrows">
+			<span id="prev">&lt;</span>
+			<span id="next">&gt;</span>
+		</div>
+	</div>  
+		<script src='jquery-1.12.4.min.js'></script>
+	<script>
+		$(function(){
+			var nowIndex=0;
+			$("#tab li").on("mouseenter",function(){
+				
+					change($(this).index());
+
+			});
+			$("#prev").on("click",function(){
+			nowIndex--;
+			if(nowIndex==-1){
+				nowIndex=$("#imgs img").length;
+
+			}
+				change(nowIndex);
+			})
+			$("#next").on("click",function(){
+			nowIndex++;
+			if(nowIndex==$("#imgs img").length){
+				nowIndex=-1;
+
+			}
+				change(nowIndex);
+			})
+			var timer=setInterval(function(){
+				$("#next").trigger("click");
+			},1000);
+
+			$("#container").on("mouseleave",function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+				$("#next").trigger("click");
+			},1000);
+
+			});
+			$("#container").on("mouseenter",function(){
+				clearInterval(timer);
+			});
+
+			function change(idx){
+				nowIndex=idx;
+				$("#tab li").eq(nowIndex).addClass("selected-li").siblings().removeClass("selected-li");
+				
+				$("#imgs img").eq(nowIndex).addClass("selected-img").siblings().removeClass("selected-img");
+			}
+			
+		})
+	</script>
+</body>
+</html>
