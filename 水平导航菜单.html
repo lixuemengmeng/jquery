@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>水平导航菜单</title>
+	<meta charset="utf-8">
+	<style >
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.first-leval{
+		list-style: none;
+
+	}
+	.first-leval > li{
+		float: left;
+		margin: 10px;
+		width: 100px;
+		height: 20px;
+		background: #ccc;
+		cursor:pointer;
+		text-align: center;
+	}
+	.second-leval{
+		list-style: none;
+		border:1px solid #000;
+		border-top: 0px;
+		display: none;
+	}
+
+	</style>
+</head>
+<body>
+	<ul class="first-leval">
+		<li>一级菜单1
+			<ul class="second-leval">
+				<li>二级菜单1</li>
+				<li>二级菜单2</li>
+				<li>二级菜单3</li>
+				<li>二级菜单4</li>
+			</ul>
+		</li>
+		<li>一级菜单2
+			<ul class="second-leval">
+				<li>二级菜单1</li>
+				<li>二级菜单2</li>
+				<li>二级菜单3</li>
+				<li>二级菜单4</li>
+			</ul>
+		</li>
+		<li>一级菜单3
+			<ul class="second-leval">
+				<li>二级菜单1</li>
+				<li>二级菜单2</li>
+				<li>二级菜单3</li>
+				<li>二级菜单4</li>
+			</ul>
+		</li>
+		<li>一级菜单4
+			<ul class="second-leval">
+				<li>二级菜单1</li>
+				<li>二级菜单2</li>
+				<li>二级菜单3</li>
+				<li>二级菜单4</li>
+			</ul>
+		</li>
+		
+	</ul>
+		<script src='jquery-1.12.4.min.js'></script>
+		<script >
+		$(function(){
+			$(".first-leval >li").hover(function(){
+				$(this).children(".second-leval").stop().slideDown("fast");
+			},function(){
+				$(this).children(".second-leval").stop().slideUp("fast");
+			});
+		});
+		</script>
+</body>
+</html>
