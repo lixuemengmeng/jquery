@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+img{
+	border:0;
+}
+#contianer{
+	height: 420px;
+	width:100%;
+	margin-top:200px;
+	position: relative;
+}
+#content{
+	height: 370px;
+	width: 760px;
+	
+	position: absolute;
+	top:50px;
+	/*overflow: hidden;*/
+}
+#big-img{
+	height:280px;
+    position: absolute;
+
+}
+#big-img img{
+	float: left;
+}
+#small-img{
+	position: absolute;
+	bottom: 10px;
+	left: 40px;
+}
+#small-img img{
+	border: 5px solid #fff;
+	margin-right: 20px;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	cursor:pointer;
+}
+#small-img .select{
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+#prev,#next{
+	background-repeat:no-repeat;
+	background-color:#000;
+	background-position: center;
+	position: absolute;
+	width: 30px;
+	height: 60px;
+	top:110px;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+	cursor: pointer;
+}
+#prev{
+	background-image: url(img/prev.png);
+	left: 10px;
+}
+#next{
+	background-image: url(img/next.png) ;
+	right: 10px;
+	
+	
+
+}
+
+.bg1{
+	height: 420px;
+	width: 100%;
+	position: absolute;
+	background: url(img/bg1.png) ;
+
+}
+.bg2{
+	height: 420px;
+	width: 100%;
+	position: absolute;
+	background: url(img/bg2.png) ;
+}
+.bg3{
+	height: 420px;
+	width: 100%;
+	position: absolute;
+	background: url(img/bg3.png) ;
+
+}
